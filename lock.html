@@ -133,6 +133,46 @@
             z-index: 2;
             width: 15%;
             text-align: center;
+            position: relative;
+            cursor: help;
+        }
+
+        .step-tooltip {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: #1e293b;
+            border: 1px solid var(--accent-primary);
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            width: 160px;
+            font-size: 0.7rem;
+            color: var(--text-main);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            z-index: 10;
+            line-height: 1.4;
+        }
+
+        .step-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--accent-primary) transparent transparent transparent;
+        }
+
+        .step:hover .step-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
         }
 
         .step-icon {
@@ -311,27 +351,33 @@
                     <h2>Patient Journey</h2>
                     <div class="visual-journey">
                         <div class="step">
+                            <div class="step-tooltip">Instant PWA launch via QR scan at reception.</div>
                             <div class="step-icon">1</div>
                             <div class="step-label">QR Scan</div>
                         </div>
                         <div class="step">
+                            <div class="step-tooltip">Veena conducts voice-first symptoms interview in Bangla.</div>
                             <div class="step-icon">2</div>
                             <div class="step-label">Intake</div>
                         </div>
                         <div class="step">
                             <div class="step-icon">3</div>
+                            <div class="step-tooltip">Structured clinical brief delivered to doctor's dashboard.</div>
                             <div class="step-label">Dr Brief</div>
                         </div>
                         <div class="step">
                             <div class="step-icon">4</div>
+                            <div class="step-tooltip">AI digitizes handwritten prescriptions and schedules.</div>
                             <div class="step-label">Rx Vision</div>
                         </div>
                         <div class="step">
                             <div class="step-icon">5</div>
+                            <div class="step-tooltip">Automated patient check-ins and medication reminders.</div>
                             <div class="step-label">Followup</div>
                         </div>
                         <div class="step">
                             <div class="step-icon">6</div>
+                            <div class="step-tooltip">Persistent clinical context stored in secure memory graph.</div>
                             <div class="step-label">Memory</div>
                         </div>
                     </div>
